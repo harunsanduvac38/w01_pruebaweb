@@ -1,6 +1,7 @@
 package com.cursogetafe.pruebaweb.vista;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -17,9 +18,15 @@ public class MiPrimerServlet extends HttpServlet {
 		super.doDelete(req, resp);
 	}
 
+	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		System.out.println("Han accedido al GET");
+		
+		String respuesta = "<!DOCTYPE html><html><body> <h1>Hola soy un Servlet</h1></body></html>";
+		
+		PrintWriter out = new PrintWriter(resp.getWriter());
+		out.println(respuesta);
 	}
 
 	@Override
